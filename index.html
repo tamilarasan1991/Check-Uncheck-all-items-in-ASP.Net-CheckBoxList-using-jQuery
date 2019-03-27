@@ -9,21 +9,21 @@
     <asp:ListItem Text="Papaya" />
 </asp:CheckBoxList>
 
-<script type="text/javascript">
-    $(function () {
-        $("[id*=chkAll]").bind("click", function () {
-            if ($(this).is(":checked")) {
-                $("[id*=chkFruits] input").attr("checked", "checked");
-            } else {
-                $("[id*=chkFruits] input").removeAttr("checked");
-            }
+  <script type="text/javascript">
+        $(function () {
+            $("[id*=chk_all]").bind("click", function () {
+                if ($(this).is(":checked")) {
+                    $("[id*=CHK_Filter] input").prop("checked", true);
+                } else {
+                    $("[id*=CHK_Filter] input").prop("checked", false);
+                }
+            });
+            $("[id*=CHK_Filter] input").bind("click", function () {
+                if ($("[id*=CHK_Filter] input:checked").length == $("[id*=CHK_Filter] input").length) {
+                    $("[id*=chk_all]").prop("checked", true);
+                } else {
+                    $("[id*=chk_all]").prop("checked", false);
+                }
+            });
         });
-        $("[id*=chkFruits] input").bind("click", function () {
-            if ($("[id*=chkFruits] input:checked").length == $("[id*=chkFruits] input").length) {
-                $("[id*=chkAll]").attr("checked", "checked");
-            } else {
-                $("[id*=chkAll]").removeAttr("checked");
-            }
-        });
-    });
 </script>
