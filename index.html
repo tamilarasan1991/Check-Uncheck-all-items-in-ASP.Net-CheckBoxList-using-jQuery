@@ -1,0 +1,29 @@
+<asp:CheckBox ID="chkAll" Text="Select All" runat="server" />
+<asp:CheckBoxList ID="chkFruits" runat="server">
+    <asp:ListItem Text="Mango" />
+    <asp:ListItem Text="Apple" />
+    <asp:ListItem Text="Banana" />
+    <asp:ListItem Text="Pineapple" />
+    <asp:ListItem Text="Guava" />
+    <asp:ListItem Text="Grapes" />
+    <asp:ListItem Text="Papaya" />
+</asp:CheckBoxList>
+
+<script type="text/javascript">
+    $(function () {
+        $("[id*=chkAll]").bind("click", function () {
+            if ($(this).is(":checked")) {
+                $("[id*=chkFruits] input").attr("checked", "checked");
+            } else {
+                $("[id*=chkFruits] input").removeAttr("checked");
+            }
+        });
+        $("[id*=chkFruits] input").bind("click", function () {
+            if ($("[id*=chkFruits] input:checked").length == $("[id*=chkFruits] input").length) {
+                $("[id*=chkAll]").attr("checked", "checked");
+            } else {
+                $("[id*=chkAll]").removeAttr("checked");
+            }
+        });
+    });
+</script>
